@@ -78,7 +78,7 @@ https://api.themoviedb.org/3/discover/movie?api_key=<<api_key>>&language=en-US&s
 
 > I replaced <<api_key>> with my own API_KEY
 
-Which resulted in [discover_movies.json](discover_movies.json)
+Which resulted in [discover_movies.json](json/discover_movies.json)
 
 ## [Movie Details](https://developers.themoviedb.org/3/movies/get-movie-details)
 
@@ -88,7 +88,7 @@ The Request URL was
 https://api.themoviedb.org/3/movie/475557?api_key=<<api_key>>
 ```
 
-Which gave me [joker_movie_details.json](joker_movie_details.json)
+Which gave me [joker_movie_details.json](json/joker_movie_details.json)
 
 ## [Trending Movies](https://developers.themoviedb.org/3/trending/get-trending)
 
@@ -97,7 +97,7 @@ Request URL was
 https://api.themoviedb.org/3/trending/movie/week?api_key=<api_key>>
 ```
 
-Which gave me [trending_movies.json](trending_movies.json)
+Which gave me [trending_movies.json](json/trending_movies.json)
 
 
 
