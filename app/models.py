@@ -32,3 +32,9 @@ class Review:
             if review.movie_id == id:
                 response.append(review)
         return response
+
+class Role:
+    pass
+
+class User:
+    pass
