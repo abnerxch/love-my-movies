@@ -33,8 +33,12 @@ class Review:
                 response.append(review)
         return response
 
-class Role:
-    pass
+class Role(db.Model):
+    __tablename__ = 'roles'
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(255))
+    def __repr__(self):
+        return f'User {self.name}'
 
 class User:
     pass
