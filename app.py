@@ -1,3 +1,7 @@
+"""
+I use manage.py as the main py file
+"""
+
 from flask import Flask
 
 app = Flask(__name__)
