@@ -10,4 +10,10 @@ class Movie:
         self.vote_count = vote_count
 
 class Review:
-    pass
+    all_reviews = []
+
+    def __init__(self, movie_id, title, imageurl, review):
+        self.movie_id = movie_id
+        self.title = title
+        self.imageurl = imageurl
+        self.review = review
