@@ -1,5 +1,5 @@
 Flask==1.0.2
-redis==5.0.3
+redis
 certifi==2018.11.29
 chardet==3.0.4
 Click==7.0
