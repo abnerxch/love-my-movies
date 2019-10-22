@@ -25,3 +25,11 @@ def movie(id):
     title = f'{movie.title}'
     reviews = Review.get_reviews(movie.id)
     return render_template('movie.html',title = title,movie = movie,reviews = reviews)
+
+@main.route('/search/<movie_name>')
+def search(movie_name):
+    movie_name_list = movie_name.split(" ")
+    movie_name_format = "+".join(movie_name_list)
+    searched_movies = search_movie(movie_name_format)
+    title = f'search results for {movie_name}'
+    return render_template('search.html',movies = searched_movies)
