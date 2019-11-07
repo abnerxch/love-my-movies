@@ -5,8 +5,8 @@ class Config:
     MOVIE_API_BASE_URL ='https://api.themoviedb.org/3/movie/{}?api_key={}'
     MOVIE_API_KEY = '332ad6279a4d4f18eafb966735435f21'
     os.environ.get('SECRET_KEY')
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://abnerxch:p@localhost/watchlist'
-    # UPLOADED_PHOTOS_DEST = 'app/static/photos'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://josylad:p@localhost/watchlist'
+    UPLOADED_PHOTOS_DEST = 'app/static/photos'
 #  email configurations
 #     MAIL_SERVER = 'smtp.googlemail.com'
 #     MAIL_PORT = 587
