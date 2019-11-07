@@ -10,14 +10,11 @@ from .. import db, photos
 # Views
 @main.route('/')
 def index():
-    '''
-    View root page function that returns the index page and its data
-    '''
     # Getting popular movie
     popular_movies = get_movies('popular')
     upcoming_movie = get_movies('upcoming')
     now_showing_movie = get_movies('now_playing')
-    title = 'Home - Welcome to The best Movie Review Website Online'
+    title = 'Love my movies'
     
     search_movie = request.args.get('movie_query')
 
@@ -32,9 +29,6 @@ def index():
 @main.route('/movie/<int:id>')
 def movie(id):
 
-    '''
-    View movie page function that returns the movie details page and its data
-    '''
     movie = get_movie(id)
     title = f'{movie.title}'
     reviews = Review.get_reviews(movie.id)
@@ -49,9 +43,7 @@ def movie(id):
 
 @main.route('/search/<movie_name>')
 def search(movie_name):
-    '''
-    View function to display the search results
-    '''
+
     movie_name_list = movie_name.split(" ")
     movie_name_format = "+".join(movie_name_list)
     searched_movies = search_movie(movie_name_format)
