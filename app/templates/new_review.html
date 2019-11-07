@@ -1,19 +1,40 @@
-{% extends 'base.html'%}
-{% import "bootstrap/wtf.html" as wtf %}
+{% extends 'base.html'%} 
+
 
 {% block content %}
-    <div class="container">
+    <div class="jumbotron mdb-color special-color-dark text-center text-white">
+        <h2 class="h2">Movie Review</h2>
+    </div>
+    <div class="container mt-4 mb-4">
 
-        <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-8 mt-4">
+                    <h3 class="mb-4"> {{movie.title}} </h3>
+                <img src="{{movie.poster}}" alt="{{movie.title}}" class="img-fluid">
+            </div>
 
-            <img src="{{movie.poster}}" alt="{{movie.title}}" class="img-responsive">
+            <div class="col-md-4 mt-4 mb-4">
+                <form method="POST" class="">
+                    {{ review_form.csrf_token}}
+                <h3 class="">
+                        {{ review_form.title.label }}<br>
+                    {{ review_form.title(class_='form-control validate')}} <br>
+
+                </h3>
+                <h3>
+                        {{ review_form.review.label }}<br>
+                        {{ review_form.review(class_='form-control validate')}}
+                
+                </h3>
+                    
+                <p>
+                    <span class="">{{ review_form.submit(class_='btn btn-default btn-lg')}}</span>    
+
+                </p>
+                </form>
+                <!-- {{simplemde.load}} -->
+            </div>
         </div>
-
-        <div class="col-md-4">
-
-            {{ wtf.quick_form(review_form) }}
-        </div>
-
     </div>
 
 {% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+
+<!-- Content block -->
+{% block content %}
+<div class="jumbotron mdb-color special-color-dark text-center text-white">
+    <h2 class="h2">Movie Details</h2>
+</div>
+<div class="container mt-4 pt-4 mb-4 pb-4">
+
+    <!-- Poster background -->
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style=" height:600px; background: url({{movie.poster}}) no-repeat center center">
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
+            <h3>{{ movie.title }}</h3>
+
+            <p class="overview"> {{ movie.overview }}</p>
+            <p class="ratings"> <b> {{ movie.vote_average }}</b> - <i>{{ movie.vote_count}} votes </i> </p>
+            
+            <a class="ratings" href="/movie/review/new/{{movie.id}}"> Write a new review</a>
+
+            <div class="mt-4 mb-4">
+
+                    <h2>Reviews</h2>
+                    <hr>
+            
+                    {% if reviews %}
+                       <p> {{macro.displayReviews(reviews)}} </p> 
+            
+                    {% else%}
+                        <h4 class="">This movie has no reviews </h4>
+            
+                        <a class="btn btn-dark text-center" href="/movie/review/new/{{movie.id}}"> Write a new review</a>
+                    {% endif %}
+            
+                </div>
+        </div>
+       
+    </div>
+
+</div>
+
+{% endblock %}

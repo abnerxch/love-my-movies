@@ -1,24 +1,53 @@
 {% macro displayMovieList(movie_list) %}
 
-    {% for movie in movie_list %}
-        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
-            <img src="{{ movie.poster }}" alt="{{ movie.title }} poster" class="img-responsive">
-            <li class="text-center">
-                <a href="/movie/{{movie.id}}">
-                    {{ movie.title|truncate(10)}}</a>
-            </li>
-        </div>
 
-    {% endfor %}
-    {% endmacro %}
-    <!-- Displaying reviews macro -->
+<!-- Card -->
+    <div class="container-fluid">
+            <div class="card-columns">
+        {% for movie in movie_list %}
+            
+                    <!-- Card image -->
+                <div class="card">
+                    <div class="view overlay">
+                    <img class="card-img-top" src="{{ movie.poster }}" alt="{{ movie.title }} poster">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                    </div>
+                
+                    <!-- Card content -->
+                    <div class="card-body">
+                
+                    <!-- Title -->
+                    <h4 class="card-title">{{ movie.title|truncate(100)}}</h4>
+                    <!-- Text -->
+                    <p class="card-text">{{ movie.overview|truncate(60)}}.</p>
+                    <!-- Button -->
+                    <a href="/movie/{{movie.id}}" class="btn btn-lg btn-dark">More Details</a>
+                
+                    </div>
+                </div>
+
+        {% endfor %}
+            </div>
+    </div>
+                    <!-- Card -->
+
+   
+
+{% endmacro %}
+
+<!-- Displaying reviews macro -->
 {% macro displayReviews(review_list) %}
-{% for review in review_list %}
-<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
-    <h2> {{ review.title}} </h2>
-    <p> {{ review.review | truncate(30) }}</p>
+<div class="container mb-4">    
+    {% for review in review_list %}
+
+        <ul>
+            <li><h4> {{ review.movie_title}} </h4></li>
+            
+        <p> {{ review.movie_review }}</p>
+        </ul>
+    
+    {% endfor %}
 </div>
-{% endfor %}
-
-
 {% endmacro %}

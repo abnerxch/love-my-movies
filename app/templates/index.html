@@ -1,33 +1,47 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
-<!-- Content block -->
+<!-- Styles block --> 
+{% block styles %}
+    {{ super () }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    {% endblock%}
 
-{% block content %}
+        {% block content %}
+        <div class="jumbotron mdb-color special-color-dark text-center text-white">
+                <h2 class="h2">WELCOME TO MOVIE BASE</h2>
+            </div>
+        <div class="container">
+                <form>
+                    <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
+                    <input type="submit"  value="Submit" class="btn btn-dark">
+                </form>
+            
+            </div>
+    <div class="container-fluid" >
+        <!-- Popular movie -->
+        <div  id="popular" class="mt-4 pt-4"> 
+            </div>
+        <h2 class="mdb-color special-color-dark h2 text-white mt-4 mb-4 text-center pb-4 pt-4"> Popular Movies</h2> 
 
-<div class="container">
-        <form>
-            <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
-            <input type="submit"  value="Submit" class="btn btn-default">
-        </form>
+        <ul>
+            {{ macro.displayMovieList(popular)}}
+        </ul>
+        <!-- Upcoming movie  -->
+        <div id="upcoming" class="mt-4 pt-4" > </div>
+            <h2 class="mdb-color special-color-dark h2 text-white mt-4 mb-4 text-center pb-4 pt-4"> Upcoming Movies </h2>
+        
+        <ul>
+            {{ macro.displayMovieList(upcoming)}}
+        </ul>
+        <!-- Now showing movie -->
+        <div id="nowshowing" class="mt-4 pt-4">
+            </div>
+        <h2 class="mdb-color special-color-dark h2 text-white mt-4 mb-4 text-center pb-4 pt-4">Now Showing</h2>
 
+        <ul>
+            {{ macro.displayMovieList(now_showing)}}
+        </ul>
     </div>
-
-<!-- Popular movie -->
-<h3> Popular Movies</h3>
-<ul>
-    {{ macro.displayMovieList(popular)}}
-</ul>
-<!-- Upcoming movie  -->
-<h3> Upcoming Movies </h3>
-<ul>
-    {{ macro.displayMovieList(upcoming)}}
-</ul>
-<!-- Now showing movie -->
-<h3>Now Showing</h3>
-<ul>
-    {{ macro.displayMovieList(now_showing)}}
-</ul>
-
-
-{% endblock%}
+        {% endblock%}
+    
