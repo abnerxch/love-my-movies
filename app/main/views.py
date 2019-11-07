@@ -17,7 +17,7 @@ def index():
     popular_movies = get_movies('popular')
     upcoming_movie = get_movies('upcoming')
     now_showing_movie = get_movies('now_playing')
-    title = 'Love my movies'
+    title = 'Home - Welcome to The best Movie Review Website Online'
     
     search_movie = request.args.get('movie_query')
 
