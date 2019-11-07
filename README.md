@@ -59,6 +59,7 @@ docker build --rm -f "Dockerfile" -t abnerxocop/my-repo:latest .
 docker-compose up
 
 ```
+You can see the app working in your favourite browser on [https://lovemymovies-abner.herokuapp.com/](https://lovemymovies-abner.herokuapp.com/)
 
 # The Movie Database API
 We are going to use The Movie Database API 3 [TMDd](https://www.themoviedb.org/) to retrieve our initial data.
