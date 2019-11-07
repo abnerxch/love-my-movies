@@ -33,15 +33,6 @@ def get_movies(category):
 
 
 def process_results(movie_list):
-        '''
-        Function  that processes the movie result and transform them to a list of Objects
-
-        Args:
-            movie_list: A list of dictionaries that contain movie details
-
-        Returns :
-            movie_results: A list of movie objects
-        '''
         movie_results = []
         
         for movie_item in movie_list:
@@ -84,7 +75,7 @@ def get_movie(id):
 
 def search_movie(movie_name):
      
-    search_movie_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(api_key, movie_name)
+    search_movie_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format('332ad6279a4d4f18eafb966735435f21', movie_name)
     
     with urllib.request.urlopen(search_movie_url) as url:
         search_movie_data = url.read()
